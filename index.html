@@ -8,27 +8,33 @@
 </head>
 <body>
     
-    
-<div class="dropdown-container">
-    <button class="dropbtn">Main Page</button>
-    <div class="dropdown-content">
-        <a href="#">Home</a>
-        <a href="#">Subjects</a>
-        <a href="#">Writers</a>
-        <a href="#">Contact</a>
-        <a href="#">Logout</a>
+<!-- Navigation Bar -->
+<nav>
+    <ul class="navbar">
+        <li><a href="home.html">Home</a></li>
+        <li class="dropdown">
+            <button class="dropbtn">Blogs ▼</button>
+            <ul class="dropbtncont">
+                <li><a href="single.html">Single</a></li>
+                <li><a href="taken.html">Taken</a></li>
+                <li><a href="heartbroken.html">Heartbroken</a></li>
+                <li><a href="complicated.html">Complicated</a></li>
+            </ul>
+        </li>
+        <li><a href="about.html">About Writers</a></li>
+        <li><a href="logout.html">Log Out</a></li>
+    </ul>
+</nav>
+
+<!-- Envelope Container -->
+<div class="container">
+    <div class="envelope" id="envelope">
+        <img src="envelope-closed.png" alt="Closed Envelope" class="closed" id="closed-img">
+        <img src="envelope-open.png" alt="Open Envelope" class="open" id="open-img">
     </div>
 </div>
 
-
-    <div class="container">
-        <div class="envelope" id="envelope">
-            <img src="envelope-closed.png" alt="Closed Envelope" class="closed" id="closed-img">
-            <img src="envelope-open.png" alt="Open Envelope" class="open" id="open-img">
-        </div>
-    </div>
-
-   
+<!-- Login Form -->
 <div class="login-form" id="login-form">
     <div class="profile-pic-container">
         <img src="default-pfp.png" alt="Profile Picture" class="profile-pic">
@@ -36,15 +42,10 @@
     <input type="text" class="input-field" id="username" placeholder="statUS" required>
     <input type="password" class="input-field" id="password" placeholder="Group5" required>
     <button class="login-btn">Log In</button>
-    
-
 </div>
 
-
-    <script src="script.js"></script>
-
-    <div class="hearts"></div> 
-
-    <img src="logo.png" alt="Logo" class="logo">
+<script src="script.js"></script>
+<div class="hearts"></div> 
+<img src="logo.png" alt="Logo" class="logo">
 </body>
 </html>
