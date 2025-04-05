@@ -20,7 +20,7 @@ nav {
     width: 100%;
     background-color: #ffb3d9;
     padding: 10px 0;
-    z-index: 1000; /* Ensure navbar is on top */
+    z-index: 1000; 
 }
 
 .navbar {
@@ -269,6 +269,6 @@ nav {
 /*bg color */
 body {
     font-family: Arial, sans-serif;
-    background-color: #fadadd;  
+    background-color: #fadadd;
     text-align: center;
 }
