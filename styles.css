@@ -269,6 +269,6 @@ nav {
 /*bg color */
 body {
     font-family: Arial, sans-serif;
-    background-color: #fadadd;
+    background: radial-gradient(circle, #F2BED1, #FFB8E0, #FDCEDF, #F8E8EE);
     text-align: center;
 }
