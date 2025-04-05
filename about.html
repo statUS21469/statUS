@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us</title>
+  <style>
+
+nav {
+  background-color: #ffb3d9;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar a,
+.dropbtn {
+  text-decoration: none;
+  color: #444;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover,
+.dropbtn:hover {
+  background-color: #f8c8dc;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtncont {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff0f5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+
+.dropdown:hover .dropbtncont {
+  display: block;
+}
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to left, #F2BED1, #FFB8E0, #FDCEDF, #F8E8EE);
+      color: #444;
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+
+    header {
+      width: 100%;
+      height: 200vh;
+      background-image: url('eberyone.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .intro {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #c64f72;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .writer-section {
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+
+    .writer-section:hover {
+      transform: scale(1.02);
+    }
+
+    .writer-img {
+      flex: 0 0 120px;
+    }
+
+    .writer-img img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #f8c8dc;
+    }
+
+    .writer-info {
+      flex: 1;
+    }
+
+    .writer-info h2 {
+      font-size: 1.5rem;
+      color: #c64f72;
+    }
+
+    .writer-info p {
+      margin: 0.4rem 0;
+    }
+
+    ul.song-list {
+      list-style: square inside;
+      padding-left: 1rem;
+      margin: 0.5rem 0 1rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+ <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <button class="dropbtn">Blogs ▼</button>
+        <ul class="dropbtncont">
+          <li><a href="blog.html#category1">Single</a></li>
+          <li><a href="blog.html#category2">Taken</a></li>
+          <li><a href="blog.html#category3">Heartbroken</a></li>
+          <li><a href="blog.html#category4">Complicated</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About Writers</a></li>
+      <li><a href="index.html">Log Out</a></li>
+    </ul>
+  </nav>
+
+  <header></header>
+
+  <div class="intro">
+    <h1>About the Writers</h1>
+    <p>
+      We are the Writers of this lovely website called statUS. Think of this space as a digital love letter—one that’s never quite finished. Here, we explore all things love: the spark, the ache, the quiet moments in between. Whether we're writing from experience, imagination, or somewhere in between, we invite you to read, feel, and maybe even fall a little in love with the words. 
+
+      Thank you for taking your time to visit our webisite. We are Group 5 from 9D. 
+    </p>
+  </div>
+
+  <div class="writer-section">
+    <div class="writer-img">
+      <img src="ethprof.png" alt="Writer profile picture" />
+    </div>
+    <div class="writer-info">
+      <h2>Ethan Gabriel R. Jose</h2>
+      <p><strong>Motto:</strong> "okay lang gumastos para sa sarili, atleast hindi natin ginagamit pera natin pambili ng gatas at diaper 💜💜💜"</p>
+      <p><strong>Songs that define love:</strong></p>
+      <ul class="song-list">
+        <li>"Kiss Me" - Sixpence None the Richer</li>
+        <li>"Iris" - The Goo Goo Dolls</li>
+        <li>"Migraine" - Moonstar88</li>
+        <li>"Tadhana" - Up Dharma Down</li>
+        <li>"Sana" - I Belong to the Zoo</li>
+        <li>"Beer" - The Itchyworms</li>
+        <li>"Huwag na Huwag Mong Sasabihin" - Kitchie Nadal</li>
+        <li>"Unti-Unti" - Up Dharma Down</li>
+        <li>"Same Ground" - Kitchie Nadal</li>
+        <li>"Maybe This Time" - Sarah Geronimo</li>
+        <li>"Double take" - Dhruv</li>
+      </ul>
+      <p><strong>Love Language:</strong> Physical Touch</p>
+      <p><strong>Status:</strong> Single duhh</p>
+    </div>
+  </div>
+
+  <div class="writer-section">
+    <div class="writer-img">
+      <img src="divprof.png" alt="Writer profile picture" />
+    </div>
+    <div class="writer-info">
+      <h2>Divine Favour Ac-ac</h2>
+      <p><strong>Motto:</strong> "Pick yourself before others"</p>
+      <p><strong>Songs that define love:</strong></p>
+      <ul class="song-list">
+        <li>"Lover" - Taylor Swift</li>
+      </ul>
+      <p><strong>Love Language:</strong> Physical Touch</p>
+      <p><strong>Status:</strong> Inlove♥️</p>
+    </div>
+  </div>
+
+  <div class="writer-section">
+    <div class="writer-img">
+      <img src="gumiprof.png" alt="Writer profile picture" />
+    </div>
+    <div class="writer-info">
+      <h2>Jelena Jonah Megumi Puno</h2>
+      <p><strong>Motto:</strong> "Heres the thing about mistakes: Sometimes even when you know somethings a mistake, you gotta make it anyway."</p>
+      <p><strong>Songs that define love:</strong></p>
+      <ul class="song-list">
+        <li>"Bags" – Clairo</li>
+        <li>"The Only Exception" – Paramore</li>
+        <li>"Out of My League" - Stephen Speaks</li>
+        <li>"Heart Like Yours" - Willamette Stone</li>
+        <li>"Daylight" - Taylor Swift</li>
+        <li>"Aphrodite" - The Ridleys</li>
+        <li>"Harana" - Parokya Ni Edgar</li>
+        <li>"Love U Like That" - Lauv</li>
+      </ul>
+      <p><strong>Love Language:</strong> Physical Touch & Quality Time</p>
+      <p><strong>Status:</strong> Taken for now, married in the future 🥰</p>
+    </div>
+  </div>
+
+  <div class="writer-section">
+    <div class="writer-img">
+      <img src="zavprof.png" alt="Writer profile picture" />
+    </div>
+    <div class="writer-info">
+      <h2>Zavdiel M. San Buenaventura</h2>
+      <p><strong>Motto:</strong> "Happy Wala lang😝"</p>
+      <p><strong>Songs that define love:</strong></p>
+      <ul class="song-list">
+        <li>"Bulong" – December Avenue </li>
+        <li>"Sa ngalan ng pag ibig" - December Avenue</li>
+        <li>"Kahit di mo alam" - December avenue</li>
+        <li>"Eroplanong papel" - December avenue</li>
+        <li>"Kahit ayaw mo na" - This band</li>
+        <li>"Hindi na nga" - This band</li>
+      </ul>
+      <p><strong>Love Language:</strong> Quality Time</p>
+      <p><strong>Status:</strong> Single & Heartbroken😞</p>
+    </div>
+  </div>
+
+  <div class="writer-section">
+    <div class="writer-img">
+      <img src="mirprof.png" alt="Writer profile picture" />
+    </div>
+    <div class="writer-info">
+      <h2>Mireya Gail M. Teodoro</h2>
+      <p><strong>Motto:</strong> "Trying is better than regret."</p>
+      <p><strong>Songs that define love:</strong></p>
+      <ul class="song-list">
+        <li>"Tingin - Cup of Joe ft. Janine</li>
+        <li>"Ikot" - Over October</li>
+        <li>"Kapag tumibok ang Puso" - Donna Cruz</li>
+        <li>"Tibok" - Earl Agustin</li>
+        <li>"Akin Ka Na Lang" - The Itchyworms</li>
+        <li>"Bumalik ka na sa'kin" - Silent Sanctuary</li>
+        <li>"Pagibig" - Ylona Garcia, Bailey May</li>
+        <li>"Paubaya" - Moira Dela Torre</li>
+        <li>"Oceans and Engines" - NIKI</li>
+        <li>"Her" - JVKE</li>
+      </ul>
+      <p><strong>Love Language:</strong> Quality Time</p>
+      <p><strong>Status:</strong> Inlove pero single</p>
+    </div>
+  </div>
+
+  <div class="writer-section">
+    <div class="writer-img">
+      <img src="emprof.png" alt="Writer profile picture" />
+    </div>
+    <div class="writer-info">
+      <h2>Emerich Ninariko A. Torio</h2>
+      <p><strong>Motto:</strong> "Walang tunay na tagumpay kung walang pagsubok at sakripisyo."</p>
+      <p><strong>Songs that define love:</strong></p>
+      <ul class="song-list">
+        <li>"Dandelions" - Ruth B.</li>
+        <li>"Sa Ngalan Ng Pag-Ibig" - December Avenue</li>
+        <li>"Muli" - Ace Banzuelo</li>
+        <li>"Car's Outside" - James Arthur</li>
+        <li>"Love Story" - Taylor Swift</li>
+        <li>"Mahika" - Adie & Janine Berdin</li>
+        <li>"Lihim" - Arthur Miguel</li>
+        <li>"Ang Wakas" - Arthur Miguel</li>
+        <li>"Kailan?"" - Maki</li>
+      </ul>
+      <p><strong>Love Language:</strong> Words of Affirmation </p>
+      <p><strong>Status:</strong> Single</p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlogS</title>
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to right, #F2BED1, #FFB8E0, #FDCEDF, #F8E8EE);
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+nav {
+  background-color: #ffb3d9;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar a,
+.dropbtn {
+  text-decoration: none;
+  color: #444;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover,
+.dropbtn:hover {
+  background-color: #f8c8dc;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtncont {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff0f5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+
+.dropdown:hover .dropbtncont {
+  display: block;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #ffe4e1;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 65px;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.sidebar button {
+  background-color: #f8c8dc;
+  border: none;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar button:hover {
+  background-color: #f4a6c1;
+  transform: scale(1.02);
+  box-shadow: 0 0 10px #f8c8dc;
+}
+
+.sidebar button.active {
+  background-color: #f4a6c1;
+  font-weight: bold;
+  box-shadow: 0 0 10px #f4a6c1;
+  transform: scale(1.02);
+}
+
+/* Page layout container */
+.page-content {
+  display: flex;
+  flex-direction: row;
+  margin-top: 80px;
+}
+
+/* Main Content styles */
+.main {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  overflow: auto;
+}
+
+.post {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeIn 0.6s ease;
+  min-height: 500px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.post-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem 0 1.5rem;
+}
+
+.post-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-caption {
+  padding: 1rem 1.5rem 2rem;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <button class="dropbtn">Blogs ▼</button>
+        <ul class="dropbtncont">
+          <li><a href="blog.html#category1">Single</a></li>
+          <li><a href="blog.html#category2">Taken</a></li>
+          <li><a href="blog.html#category3">Heartbroken</a></li>
+          <li><a href="blog.html#category4">Complicated</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About Writers</a></li>
+      <li><a href="index.html">Log Out</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+  <button data-category="category1">Single</button>
+  <button data-category="category2">Taken</button>
+  <button data-category="category3">Heartbroken</button>
+  <button data-category="category4">Complicated</button>
+</div>
+
+
+  <!-- Main Content -->
+  <div class="main" id="postContainer">
+    <!-- Posts will be dynamically loaded here -->
+  </div>
+
+  <script>
+    const categories = {
+      category1: [
+        {
+          name: "Anonymous 1",
+          icon: "anonB.jpg",
+          image: "single1.png",
+          caption: "Saan ba ako nagkulang?"
+        },
+        {
+          name: "Anonymous 1",
+          icon: "anonB.jpg",
+          image: "single2.png",
+          caption: "Pati ba naman sa com lab may naglalandian? Augh, mga in love nga naman."
+        },
+        {
+          name: "Anonymous 1",
+          icon: "anonB.jpg",
+          image: "single3.png",
+          caption: "Study first ✧˖°..... Logic: May tatlong ibon, binato yung isa. Tanong: Mahirap ba akong i-chat?"
+        }
+      ],
+      category2: [
+        {
+          name: "Anonymous 3",
+          icon: "anonG.jpg",
+          image: "taken1.png",
+          caption: "Knowing more of me always meant loving less of me, and yet you have discovered parts of me that not even I knew about but love me effortlessly. I’m yours, forever, beyond the end of time. <3"
+        },
+        {
+          name: "Anonymous 3",
+          icon: "anonG.jpg",
+          image: "taken2.png",
+          caption: "Hawak kamay, pikit mata, sumasabay, sa musika~ Gusto kitang isayaw ng mabagal. Gusto kitang isayaw ng mabagal <3"
+        },
+        {
+          name: "Anonymous 3",
+          icon: "anonG.jpg",
+          image: "taken3.png",
+          caption: "Hinahangad ko dumating ang araw na ika’y aking kasama pag-gising sa umaga at pag pahinga sa gabi <3"
+        }
+      ],
+      category3: [
+        {
+          name: "Anonymous 4",
+          icon: "anonB.jpg",
+          image: "heartbroken1.png",
+          caption: "Nabasag ang puso ngunit di nasira"
+        },
+        {
+          name: "Anonymous 4",
+          icon: "anonB.jpg",
+          image: "heartbroken2.png",
+          caption: "Ang sakit sa puso ay isang paalala kung ano ang nawawala."
+        },
+        {
+          name: "Anonymous 4",
+          icon: "anonB.jpg",
+          image: "heartbroken3.png",
+          caption: "Ang bawat bitak sa aking puso ay nag sasabi ng isang kuwento ng katatagan. #nalulumbay."
+        }
+      ],
+      category4: [
+        {
+          name: "Similar Posts",
+          icon: "anonB.jpg",
+          image: "all.png",
+          caption: "Ang hirap mag-habol ng gusto mo kung siya mismo may hinahabol nang iba. #TheOneThatGotAway"
+        },
+        {
+          name: "Similar Posts",
+          icon: "anonG.jpg",
+          image: "all.png",
+          caption: "Hanggang tingin nalang ako guys. May gusto siyang iba #tinginbycupofjoe"
+        },
+        {
+          name: "Similar Posts",
+          icon: "anonG.jpg",
+          image: "all.png",
+          caption: "Aamin ba ako o hindi??? #FeelingKoOo"
+        },
+        {
+          name: "Anonymous 6",
+          icon: "anonB.jpg",
+          image: "em1.png",
+          caption: "Papaano mo ipaglalaban ang isang laban na matagal ka na palang talo? #PusongBigo"
+        },
+        {
+          name: "Anonymous 5",
+          icon: "anonG.jpg",
+          image: "mir1.png",
+          caption: "What if magconfess ako sakanya? HUYYYY. Kaso, baka hindi na niya akong kausapin, close pa naman kami. Hayyyy, love life nga naman. Ganto pala mararanasan mo kung in love ka noh' #overthinking #oonalang"
+        },
+        {
+          name: "Anonymous 2",
+          icon: "anonG.jpg",
+          image: "div1.png",
+          caption: "Grabe sobrang cute🤞 #DownBadSiAteGirl"
+        },
+        {
+          name: "Anonymous 6",
+          icon: "anonB.jpg",
+          image: "em2.png",
+          caption: "Kay sakit ng damdamin kung ikaw ay hindi balak ibigin. #AkoDapatYun"
+        },
+        {
+          name: "Anonymous 5",
+          icon: "anonG.jpg",
+          image: "mir2.png",
+          caption: "Nung may nalaman o may nakita ka tas sasabihin mo 'okay lang ako' sa tanong na 'okay ka lang?' #cryinginside #paubayabymoiradelatorre"
+        },
+        {
+          name: "Anonymous 2",
+          icon: "anonG.jpg",
+          image: "div2.png",
+          caption: "Nagusap kami kanina sign na ba to?😭😭 #DeluluMuch"
+        }
+      ]
+    };
+
+  function showCategory(cat) {
+    const posts = categories[cat];
+    const container = document.getElementById('postContainer');
+
+    // Prevent error if no posts
+    if (!posts) return;
+
+    container.innerHTML = ''; // Clear previous posts
+
+    // Remove 'active' from all buttons
+    document.querySelectorAll('.sidebar button').forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.getAttribute('data-category') === cat) {
+        btn.classList.add('active');
+      }
+    });
+
+    // Create and append posts
+    posts.forEach(post => {
+      const postElement = document.createElement('div');
+      postElement.className = 'post';
+
+      postElement.innerHTML = `
+        <img src="${post.image}" alt="Post image" class="post-image">
+        <div class="post-header">
+          <img src="${post.icon}" alt="${post.name}'s icon">
+          <strong>${post.name}</strong>
+        </div>
+        <div class="post-caption">${post.caption}</div>
+      `;
+
+      container.appendChild(postElement);
+    });
+  }
+
+  // Load category on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash.replace('#', '');
+    const defaultCategory = hash && categories[hash] ? hash : 'category1';
+    showCategory(defaultCategory);
+  });
+
+  // Add click listeners to sidebar buttons
+  document.querySelectorAll('.sidebar button').forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-category');
+      showCategory(category);
+    });
+  });
+</script>
+
+</body>
+</html>
